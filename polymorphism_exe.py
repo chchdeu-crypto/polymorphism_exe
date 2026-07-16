@@ -95,6 +95,7 @@ devices = [SmartTV("LG"), SmartLamp("Desk Lamp"), SmartSpeaker("Echo")]
 for d in devices:
     d.activate()
 
+#mission 5
 class Device:
     def __init__(self,name):
         self.name=name
@@ -122,3 +123,36 @@ speaker=SmartSpeaker("bose",6)
 tv=SmartTV("lg",5)
 speaker.set_volume()
 tv.set_volume()
+
+#mission 6
+class Device:
+    def __init__(self,name):
+        self.name=name
+    def run_command(self,cmd):
+        self.cmd=cmd
+        pass
+class Smartdoor(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_command(self, cmd):
+        print(f"Device {self.name} received command: {cmd} to unlock.")
+class Smartcamera(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_command(self, cmd):
+        print(f"Device {self.name} received command: {cmd} to take a shot.")
+class SmartAC(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_command(self, cmd):
+        print(f"Device {self.name} received command: {cmd} power on.")
+class Smartlump(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_command(self, cmd):
+        print(f"Device {self.name} received command: {cmd} to turn on .")
+devices=[Smartdoor("yale"),Smartcamera("cannon"),SmartAC("LG"),Smartlump("nisko")]
+def send_command(devices, cmd):
+    for divace in devices:
+        divace.run_command(cmd)
+send_command(devices,"start")
