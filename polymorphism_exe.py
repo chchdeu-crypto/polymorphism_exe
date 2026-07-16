@@ -192,3 +192,36 @@ tv=SmartTV("sansung")
 lamp.run_schedule(21)
 ac.run_schedule(21)
 tv.run_schedule(21)
+
+#mission 8
+class Device:
+    def __init__(self,name):
+        self.name=name
+    def energy_usege(self):
+        pass
+class SmartTV (Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def energy_usege(self):
+        return 150
+class  SmartAC (Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def energy_usege(self):
+        return 900
+class SmartLamp (Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def energy_usege(self):
+        return 8
+class SmartSpeaker (Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def energy_usege(self):
+        return 30
+devices=[SmartTV("lg"),SmartAC("bosch"),SmartLamp("nisko"),SmartSpeaker("jbl")]
+total=0
+for d in devices:
+    print(f"{d.__class__.__name__}: {d.energy_usege()}W")
+    total+=d.energy_usege()
+print(total)
