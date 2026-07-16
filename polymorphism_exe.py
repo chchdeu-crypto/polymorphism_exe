@@ -226,100 +226,136 @@
 #     total+=d.energy_usege()
 # print(total)
 
-#mission 9
+# #mission 9
+# class Device:
+#     def __init__(self,name):
+#         self.name=name
+#         self.is_on=False
+#     def activate(self):
+#         pass
+#     def deactivate(self):
+#         pass
+#     def status(self):
+#         pass
+# class SmartTV(Device):
+#     def __init__(self, name):
+#         super().__init__(name)
+#     def activate(self):
+#         print(f"TV {self.name}: on")
+#         self.is_on=True
+#     def deactivate(self):
+#         print(f"TV {self.name}: off ")
+#         self.is_on=False
+#     def status(self):
+#         if self.is_on:
+#             print(f"smartTV {self.name}: is on ")
+#         else:
+#             print(f"smartTV {self.name}: is off")
+# class SmartAC(Device):
+#     def __init__(self, name):
+#         super().__init__(name)
+#     def activate(self):
+#         print(f"SmartAC {self.name}: on")
+#         self.is_on=True
+#     def deactivate(self):
+#         print(f"SmartAC {self.name}: off ")
+#         self.is_on=False
+#     def status(self):
+#         if self.is_on:
+#             print(f"SmartAC {self.name}: is on ")
+#         else:
+#             print(f"SmartAC {self.name}: is off")
+# class Smartdoor(Device):
+#     def __init__(self, name):
+#         super().__init__(name)
+#     def activate(self):
+#         print(f"Smartdoor {self.name}: lock")
+#         self.is_on=True
+#     def deactivate(self):
+#         print(f"Smartdoor {self.name}: unlock ")
+#         self.is_on=False
+#     def status(self):
+#         if self.is_on:
+#             print(f"Smartdoor {self.name}: is lock ")
+#         else:
+#             print(f"Smartdoor {self.name}: is unlok")
+# class SmartLight(Device):
+#     def __init__(self, name):
+#         super().__init__(name)
+#     def activate(self):
+#         print(f"SmartLight {self.name}: on")
+#         self.is_on=True
+#     def deactivate(self):
+#         print(f"SmartLight {self.name}: off ")
+#         self.is_on=False
+#     def status(self):
+#         if self.is_on:
+#             print(f"SmartLight {self.name}: is on ")
+#         else:
+#             print(f"SmartLight {self.name}: is off")
+# class SmartCamera(Device):
+#     def __init__(self, name):
+#         super().__init__(name)
+#     def activate(self):
+#         print(f"SmartCamera {self.name}: on")
+#         self.is_on=True
+#     def deactivate(self):
+#         print(f"SmartCamera {self.name}: off ")
+#         self.is_on=False
+#     def status(self):
+#         if self.is_on:
+#             print(f"SmartCamera {self.name}: is on ")
+#         else:
+#             print(f"SmartCamera {self.name}: is off")
+# class HomeSystem:
+#     def __init__(self):
+#         self.devices=[SmartTV("LG"),SmartAC("bosch"),Smartdoor("yale"),SmartLight("nisko"),SmartCamera("cannon")]
+#     def activate_all(self):
+#         for d in self.devices:
+#             d.activate()
+#     def deactivate_all(self):
+#         for d in self.devices:
+#             d.deactivate()
+#     def system_report(self):
+#         for d in self.devices:
+#             d.status()
+# home=HomeSystem()
+# home.activate_all()
+# home.deactivate_all()
+# home.system_report()
+
+#mission 10
 class Device:
     def __init__(self,name):
         self.name=name
-        self.is_on=False
-    def activate(self):
+    def trigger_alarm(self,alert_type):
         pass
-    def deactivate(self):
-        pass
-    def status(self):
-        pass
+class SmartLamp(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def trigger_alarm(self, alert_type):
+        print(f"lamp {self.name} is flashing: {alert_type}")
+class SmartSpeaker(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def trigger_alarm(self, alert_type):
+        print(f" speaker {self.name}: is playing alram {alert_type}")
 class SmartTV(Device):
     def __init__(self, name):
         super().__init__(name)
-    def activate(self):
-        print(f"TV {self.name}: on")
-        self.is_on=True
-    def deactivate(self):
-        print(f"TV {self.name}: off ")
-        self.is_on=False
-    def status(self):
-        if self.is_on:
-            print(f"smartTV {self.name}: is on ")
-        else:
-            print(f"smartTV {self.name}: is off")
-class SmartAC(Device):
+    def trigger_alarm(self, alert_type):
+        print(f"TV {self.name}: is showing emergency  {alert_type}")
+class SmartDoorLock(Device):
     def __init__(self, name):
         super().__init__(name)
-    def activate(self):
-        print(f"SmartAC {self.name}: on")
-        self.is_on=True
-    def deactivate(self):
-        print(f"SmartAC {self.name}: off ")
-        self.is_on=False
-    def status(self):
-        if self.is_on:
-            print(f"SmartAC {self.name}: is on ")
-        else:
-            print(f"SmartAC {self.name}: is off")
-class Smartdoor(Device):
-    def __init__(self, name):
-        super().__init__(name)
-    def activate(self):
-        print(f"Smartdoor {self.name}: lock")
-        self.is_on=True
-    def deactivate(self):
-        print(f"Smartdoor {self.name}: unlock ")
-        self.is_on=False
-    def status(self):
-        if self.is_on:
-            print(f"Smartdoor {self.name}: is lock ")
-        else:
-            print(f"Smartdoor {self.name}: is unlok")
-class SmartLight(Device):
-    def __init__(self, name):
-        super().__init__(name)
-    def activate(self):
-        print(f"SmartLight {self.name}: on")
-        self.is_on=True
-    def deactivate(self):
-        print(f"SmartLight {self.name}: off ")
-        self.is_on=False
-    def status(self):
-        if self.is_on:
-            print(f"SmartLight {self.name}: is on ")
-        else:
-            print(f"SmartLight {self.name}: is off")
-class SmartCamera(Device):
-    def __init__(self, name):
-        super().__init__(name)
-    def activate(self):
-        print(f"SmartCamera {self.name}: on")
-        self.is_on=True
-    def deactivate(self):
-        print(f"SmartCamera {self.name}: off ")
-        self.is_on=False
-    def status(self):
-        if self.is_on:
-            print(f"SmartCamera {self.name}: is on ")
-        else:
-            print(f"SmartCamera {self.name}: is off")
-class HomeSystem:
+    def trigger_alarm(self, alert_type):
+        print(f"door {self.name}: locked {alert_type}")
+class AlarmSystem:
     def __init__(self):
-        self.devices=[SmartTV("LG"),SmartAC("bosch"),Smartdoor("yale"),SmartLight("nisko"),SmartCamera("cannon")]
-    def activate_all(self):
+        self.devices=[SmartLamp("nisko"),SmartSpeaker("JBL"),SmartTV("LG"),SmartDoorLock("yale")]
+    def send_alert(self,alert_type):
         for d in self.devices:
-            d.activate()
-    def deactivate_all(self):
-        for d in self.devices:
-            d.deactivate()
-    def system_report(self):
-        for d in self.devices:
-            d.status()
-home=HomeSystem()
-home.activate_all()
-home.deactivate_all()
-home.system_report()
+            d.trigger_alarm(alert_type)
+arm=AlarmSystem()
+arm.send_alert("fire")
+arm.send_alert("break in")
