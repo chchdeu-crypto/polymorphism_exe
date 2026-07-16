@@ -39,3 +39,33 @@ lamp=SmartLamp("Bedroom Lamp")
 ac=SmartAC("living room AC")
 lamp.deactivate()
 ac.deactivate()
+
+#mission 3
+class Device:
+    def __init__(self,name,is_on):
+        self.name=name
+        self.is_on=is_on
+    def status(self):
+        pass
+class SmartTV(Device):
+    def __init__(self, name, is_on,channel):
+        super().__init__(name, is_on)
+        self.channel=channel   
+    def status(self):
+        if self.is_on:
+            print(f"{self.name}: on, watching channel {self.channel}")
+        else:
+            print(f"{self.name}: off")
+class SmartSpeaker(Device):
+    def __init__(self, name, is_on,song):
+        super().__init__(name, is_on)
+        self.song=song
+    def status(self):
+        if self.is_on:
+            print(f"{self.name}: on, play {self.song}")
+        else:
+            print(f"{self.name}: off")
+tv=SmartTV("LG", True, 8)   
+speaker=SmartSpeaker("Alexa", True, "Bohemian Rhapsody")   
+tv.status()
+speaker.status()
