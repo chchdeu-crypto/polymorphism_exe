@@ -1,15 +1,15 @@
 #mission 1
-class divice:
+class Divice:
     def __init__(self,name):
         self.name=name
     def activate(self,):
         print(f"Device {self.name} is now on")
-class SmartTV(divice):
+class SmartTV(Divice):
     def __init__(self, name):
         super().__init__(name)
     def activate(self):
         print(f"TV {self.name} is playing the home screen.")
-class SmartSpeaker(divice):
+class SmartSpeaker(Divice):
     def __init__(self, name):
         super().__init__(name)
     def activate(self):
@@ -20,17 +20,17 @@ d1.activate()
 d2.activate()
 
 #mission 2
-class divice:
+class Divice:
     def __init__(self,name):
         self.name=name
     def deactivate(self):
         print(f"Device {self.name} is now off.")
-class SmartLamp(divice):
+class SmartLamp(Divice):
     def __init__(self, name):
         super().__init__(name)
     def deactivate(self):
         print(f"Lamp {self.name} is dimming and turning off.")
-class SmartAC(divice):
+class SmartAC(Divice):
     def __init__(self, name):
         super().__init__(name)
     def deactivate(self):
@@ -69,3 +69,56 @@ tv=SmartTV("LG", True, 8)
 speaker=SmartSpeaker("Alexa", True, "Bohemian Rhapsody")   
 tv.status()
 speaker.status()
+
+#mission 4
+class Device:
+    def __init__(self,name):
+        self.name=name
+    def activate(self):
+        pass
+class SmartTV(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"TV {self.name} is playing the home screen.")
+class SmartLamp(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"{self.name} is glowing warmly.")
+class SmartSpeaker(Divice):
+    def __init__(self, name):
+        super().__init__(name)
+    def activate(self):
+        print(f"speaker {self.name} is ready to play music")
+devices = [SmartTV("LG"), SmartLamp("Desk Lamp"), SmartSpeaker("Echo")]
+for d in devices:
+    d.activate()
+
+class Device:
+    def __init__(self,name):
+        self.name=name
+    def set_volume(self):
+        pass
+class SmartSpeaker(Device):
+    def __init__(self, name,level):
+        super().__init__(name)
+        self.level=level
+    def set_volume(self):
+        if self.level<=7:
+            print(f"Speaker {self.name} is now at volume {self.level}/10")    
+        else:
+            print(f"Loud!")
+class SmartTV(Device):
+    def __init__(self, name,level):
+        super().__init__(name)
+        self.level=level
+    def set_volume(self):
+        if self.level==0:
+            print("Muted")
+        else:
+            print(f"TV {self.name} volume: {self.level}")
+speaker=SmartSpeaker("bose",6)
+tv=SmartTV("lg",5)
+speaker.set_volume()
+tv.set_volume()
