@@ -129,7 +129,6 @@ class Device:
     def __init__(self,name):
         self.name=name
     def run_command(self,cmd):
-        self.cmd=cmd
         pass
 class Smartdoor(Device):
     def __init__(self, name):
@@ -156,3 +155,40 @@ def send_command(devices, cmd):
     for divace in devices:
         divace.run_command(cmd)
 send_command(devices,"start")
+
+#mission 7
+class Device:
+    def __init__(self,name):
+        self.name=name
+    def run_schedule(self,hour):
+        pass
+class SmartLamp(Device):
+    def __init__(self,name):
+        super().__init__(name)
+    def run_schedule(self, hour):
+        if 18<=hour<=23:
+            print(f"{self.name}: turning on")
+        else:
+            print(f"{self.name}: turning off")
+class SmartAC(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_schedule(self, hour):
+        if 12<=hour<=20:
+            print(f"{self.name}: turning on")
+        else:
+            print(f"{self.name}: turning off")
+class SmartTV(Device):
+    def __init__(self, name):
+        super().__init__(name)
+    def run_schedule(self, hour):
+        if 20<=hour<=23:
+            print(f"{self.name}: turning on")
+        else:
+            print(f"{self.name}: turning off")
+lamp=SmartLamp("nisko")
+ac=SmartAC("bosch")
+tv=SmartTV("sansung")
+lamp.run_schedule(21)
+ac.run_schedule(21)
+tv.run_schedule(21)
